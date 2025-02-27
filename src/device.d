@@ -1,0 +1,5 @@
+module device;
+
+class Device {
+  
+}

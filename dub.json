@@ -1,0 +1,31 @@
+{
+	"authors": [
+		"Clouudy"
+	],
+	"configurations": [
+		{
+			"dflags": [
+				"-gc"
+			],
+			"lflags": [
+				"-L=-ldc2"
+			],
+			"name": "debug",
+			"targetType": "executable"
+		}
+	],
+	"copyright": "Copyright © 2024, Clouudy",
+	"dependencies": {
+	},
+	"description": "Z80 Instruction Emulator",
+	"excludedSourceFiles": [
+		"Old/**"
+	],
+	"license": "Unlicense",
+	"name": "d80",
+	"sourcePaths": [
+		"./src"
+	],
+	"targetPath": ".",
+	"targetType": "executable"
+}
