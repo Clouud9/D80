@@ -22,7 +22,7 @@
 		"Old/**"
 	],
 	"license": "Unlicense",
-	"name": "d80",
+	"name": "demu",
 	"sourcePaths": [
 		"./src"
 	],
