@@ -35,6 +35,7 @@ unittest {
     regs = &emul.regs;
 }
 
+// This is no longer supposed to be operable, use controller.d instead. 
 void maind(string[] args) {
     /*
     ubyte num = 0x7D; 
