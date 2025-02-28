@@ -71,6 +71,7 @@ class Zemu {
     ubyte[65_536] ram;
     ubyte[256] ports;
     int T;
+    bool contLoop;
 
     static this() {
         Registers regs;
@@ -83,6 +84,9 @@ class Zemu {
         _z80_mem_write16 = &write_ram_16_default;
         _z80_mem_load    = &z80_mem_load_default;
         _z80_mem_dump    = &z80_mem_dump_default;
+        regs.IX = 0xffff;
+        regs.IY = 0xffff;
+        setFlagCond(Flag.Z, true);
     }
 
     // TODO: Add Error Handling

@@ -35,7 +35,7 @@ unittest {
     regs = &emul.regs;
 }
 
-void main(string[] args) {
+void maind(string[] args) {
     /*
     ubyte num = 0x7D; 
     string hexStr = format("%02X", num); 

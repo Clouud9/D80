@@ -17,3 +17,4 @@ zemu-test-*
 /Old
 Makefile
 /Tests
+dump.bin
