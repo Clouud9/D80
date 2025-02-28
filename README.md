@@ -2,10 +2,14 @@
 
 Z80 Emulator Written in D
 
+### How To Use: 
+Just call `demu.exe` and the binary file to be loaded & executed.
+
 ### To Do:
 
-- [ ] Move fain function over to `controller.d`
-- [ ] Finish refactoring of `zemu.d`
+- [x] Move fain function over to `controller.d`
+- [ ] Finish any refactoring of `zemu.d`
+- [ ] Decide on whether to keep `mmu.d` or to scrap it (part of refactoring `zemu.d`)
 - [ ] Add capabilities to use as a library
 - [ ] Implement Undocumented Instruction Behaviors
 - [ ] Add clocking capabilities

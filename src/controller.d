@@ -6,21 +6,7 @@ import std.format;
 enum Mode {Main, Misc, Bit, IX, IX_Bit, IY, IY_Bit}
 
 void main(string[] args) {
-    /*
-    ubyte num = 0x7D; 
-    string hexStr = format("%02X", num); 
-    writeln("The hexadecimal representation is: ", hexStr);
-    auto regex = regex(oneOp[3]);
-    auto match = matchFirst(format("%02X", num), regex);
-    if (match) {
-        writeln("MATCH");
-    } else writeln("NO MATCH");
-    */
     auto emul = new Zemu();
-
-    // emul.z80_init();
-    // MMU mmu = new MMU();
-    // mmu.read_ram(cast(ushort)0x06);
     if (args.length == 1) {
         writeln("No argument provided");
         return;
@@ -174,7 +160,13 @@ int z80_execute(Zemu emul, int cycles) {
             case Mode.IX_Bit: // Fall-through
             case Mode.IY_Bit: emul.xyBitTable(op, mode); break;
             default: assert(0);
-        }    
+        }
+
+        /* 
+         * This doc says I register put on address bus during R register refresh:
+         * https://jnz.dk/z80/registers.html 
+         * Check if true, and if so how long does it stay on the bus?
+         */
     }
 
     return emul.T;
@@ -195,7 +187,7 @@ ubyte getOpcode(Zemu emul, Mode mode) {
     switch (mode) {
         case Mode.IX_Bit: 
         case Mode.IY_Bit: 
-            emul.incrementR(3); // Change to 2, 3 used for lsebald tests
+            emul.incrementR(2); // Change to 2, 3 used for lsebald tests
             return emul.ram[emul.regs.PC + 3];
         
         case Mode.IX: 
